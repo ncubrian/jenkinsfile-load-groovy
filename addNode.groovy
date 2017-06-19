@@ -3,10 +3,12 @@ import hudson.slaves.*
 import jenkins.model.Jenkins
 
 
-def addLinuxNode(String agentName) {
+public String addLinuxNode(String agentName) {
 
-    DumbSlave dumb = new DumbSlave(agentName, "/home/jenkins", new JNLPLauncher())
+    DumbSlave slave = new DumbSlave(agentName, "/home/jenkins", new JNLPLauncher())
     Jenkins.instance.addNode(dumb)
+
+    return slave.getComputer().getJnlpMac()
 }
 
 return this;
