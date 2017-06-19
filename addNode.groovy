@@ -5,10 +5,10 @@ import jenkins.model.Jenkins
 
 public String addLinuxNode(String agentName) {
 
-    DumbSlave slave = new DumbSlave(agentName, "/home/jenkins", new JNLPLauncher())
+    DumbSlave dumb = new DumbSlave(agentName, "/home/jenkins", new JNLPLauncher())
     Jenkins.instance.addNode(dumb)
 
-    return slave.getComputer().getJnlpMac()
+    return dumb.getComputer().getJnlpMac()
 }
 
 return this;
